@@ -16,7 +16,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
 nav{display:flex;gap:18px;flex-wrap:wrap;padding:20px 0;font-size:14px}
 nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--accent)}
 .hero{padding:48px 0 32px}
@@ -130,6 +130,62 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 @keyframes sweep{from{transform:translate(26px,32px)}to{transform:translate(58px,38px)}}
 .ck{stroke-dasharray:40;animation:d40 3s ease-in-out infinite}
 @keyframes d40{0%{stroke-dashoffset:40}50%,100%{stroke-dashoffset:0}}
+.hero-note b{color:var(--text)}
+@media (min-width:1000px){.hero-top h1{font-size:clamp(2rem,2.75vw,2.55rem)}.hero-top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:44px;align-items:center}}
+.hero-side{margin-top:28px}@media (min-width:1000px){.hero-side{margin-top:0}}
+.mini{background:#0b1016;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.mini-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted)}
+.mini-bar i{width:9px;height:9px;border-radius:50%;background:var(--border)}.mini-bar span{margin-left:8px}
+.mini-body{padding:14px 16px;font:13.5px/1.9 ui-monospace,Menlo,Consolas,monospace;min-height:228px;color:#d6e2ee}
+.mini-body div{display:flex;gap:10px;align-items:baseline;animation:line .3s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-body .t{color:var(--accent);font-weight:700}.mini-body b{width:14px;flex:none;text-align:center;font-weight:700}
+.mini-body .ok b{color:#4ade80}.mini-body .run b{color:#fbbf24}.mini-body q{quotes:none;color:#fbbf24}
+.mini-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+.mini-foot a{color:var(--accent);text-decoration:none;font-weight:600}
+.demo-lead{margin:-8px 0 18px;max-width:760px}
+.tl{display:grid;gap:16px}
+@media (min-width:900px){.tl{grid-template-columns:1fr 1fr}}
+.tl-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.tl-head{display:flex;justify-content:space-between;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.tl-editor{padding:12px 0;font:13.5px/1.85 ui-monospace,Menlo,Consolas,monospace;min-height:300px;background:#0b1016;flex:1;overflow-x:auto}
+.tl-editor div{display:flex;gap:10px;padding:0 14px;white-space:pre;color:#c3cfdc;transition:background .25s}
+.tl-editor .n{width:18px;flex:none;text-align:right;color:#4b5567}
+.tl-editor .k{color:var(--accent);font-weight:700}.tl-editor q{quotes:none;color:#fbbf24}.tl-editor .c{color:#64708a}
+.tl-editor .cur{background:rgba(251,191,36,.12)}.tl-editor .okl{background:rgba(74,222,128,.07)}.tl-editor .badl{background:rgba(248,113,113,.14)}
+.tl-editor .m{width:14px;flex:none;font-weight:700}.tl-editor .okl .m{color:#4ade80}.tl-editor .badl .m{color:#f87171}
+.tl-preview{padding:14px;min-height:300px;flex:1;display:flex;align-items:center;justify-content:center}
+.tl-preview .browser{width:100%}
+.dash h4{margin:0 0 8px;font-size:15px}.dash .row{display:flex;justify-content:space-between;align-items:center;border:1px solid #e3e7ee;border-radius:6px;padding:7px 10px;margin-top:6px;font-size:13px}
+.dash .add{font-size:12px;border:1px solid #0f766e;color:#0f766e;border-radius:5px;padding:2px 8px;transition:transform .15s}.dash .add.press{transform:scale(.9);background:#0f766e;color:#fff}
+.dash .cart{float:right;font-size:12px;color:#556;font-weight:600}
+.apiv{width:100%;font:13px/1.6 ui-monospace,Menlo,Consolas,monospace}
+.apiv .req{display:flex;gap:8px;align-items:center;background:#0b1016;border:1px solid var(--border);border-radius:8px;padding:8px 10px;overflow:hidden}
+.apiv .verb{font-weight:700;color:var(--accent);flex:none}.apiv .url{color:#d6e2ee;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.apiv .code{font-weight:700;padding:1px 8px;border-radius:5px;flex:none}.apiv .c2{background:rgba(74,222,128,.15);color:#4ade80}.apiv .c4{background:rgba(248,113,113,.15);color:#f87171}
+.apiv pre{margin:10px 0 0;background:#0b1016;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:#c3cfdc;min-height:180px;white-space:pre-wrap;word-break:break-word}
+.apiv .hdr{margin-top:8px;color:var(--muted);font-size:12px;min-height:18px}
+.phone{width:210px;height:300px;border:8px solid #1f2633;border-radius:26px;background:#fff;color:#222;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.phone .sb{height:18px;background:#f2f4f7;font-size:9px;color:#667;display:flex;justify-content:space-between;padding:2px 10px}
+.phone .ab{background:#36c;color:#fff;font-size:13px;font-weight:700;padding:9px 12px}
+.phone .srch{margin:10px;border:1px solid #cdd3dd;border-radius:16px;padding:6px 12px;font-size:12px;color:#889;min-height:30px;transition:border-color .2s}
+.phone .srch.on{border-color:#36c;color:#222}
+.phone .res div{border-bottom:1px solid #eef0f3;padding:7px 12px;font-size:12px;animation:line .3s ease}.phone .res small{display:block;color:#889;font-size:10.5px}
+.phone .art{padding:10px 12px;font-size:12px;line-height:1.5}.phone .art h5{margin:0 0 6px;font-size:16px;font-family:Georgia,serif}
+.phone .tap{position:absolute;width:26px;height:26px;border-radius:50%;background:rgba(51,102,204,.35);transform:translate(-50%,-50%) scale(0);pointer-events:none}
+.phone .tap.go{animation:tap .45s ease}
+@keyframes tap{0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+.tl-stats{margin:12px 12px 0}.tl-stats .card{padding:8px}.tl-stats b{font-size:1.25rem}
+.tl-cases{padding:8px 12px 12px;display:flex;flex-direction:column;gap:8px}
+.tl-case{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:14px;background:var(--bg)}
+.tl-case .d{width:20px;height:20px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--bg);background:var(--border);margin-top:1px}
+.tl-case.run .d{background:#fbbf24;animation:pulse 1s infinite}.tl-case.ok .d{background:#4ade80}.tl-case.bad .d{background:#f87171}
+.tl-case .tt{flex:1;min-width:0}.tl-case .why{display:block;color:#f87171;font-size:12.5px}
+.tl-case .cnt{color:var(--muted);font:12px ui-monospace,Menlo,Consolas,monospace;white-space:nowrap}
+.tl-java{margin:0;padding:12px 14px;background:#0b1016;color:#c3cfdc;font:12.5px/1.7 ui-monospace,Menlo,Consolas,monospace;min-height:300px;max-height:420px;overflow:auto;flex:1;white-space:pre}
+.tl-java .jk{color:#c792ea}.tl-java .js{color:#fbbf24}.tl-java .jc{color:#64708a}.tl-java .jn{animation:line .3s ease;display:inline-block}
+#experience .job ul{max-width:920px}
+#skills .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+#certs .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .feature{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center}
 .feature code{font-size:.85em;background:var(--accent-soft);color:var(--accent);padding:1px 5px;border-radius:4px}
 .feature-shot{display:block;min-width:0}
@@ -141,15 +197,25 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 <body>
 <div id="bar"></div>
 <div class="wrap">
-<nav><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#demo">Test demo</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
+<nav><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#demo">Testlingo demo</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
 
 <header class="hero" id="about">
 
+<div class="hero-top"><div class="hero-main">
 <span class="tag">Open to QA, Automation &amp; Manual Tester roles · Willing to relocate</span>
 <h1>Basil Palikodath Tharian<br>Software Tester / QA Tester</h1>
 <p class="typing">I <span id="typed"></span><span class="cursor">|</span></p>
 <p class="lead">Software Testing Engineer with 5+ years of manual and automation experience (Selenium/Java, Playwright). I’ve led QA teams, built automation frameworks and lifted test automation coverage from 40% to 80%, with solid Agile, CI/CD, API and performance testing behind it.</p>
 <p class="lead" style="font-size:.95rem;margin:14px 0 0">📍 Manchester, UK · Willing to relocate · 5+ years in software testing</p>
+<div class="btns"><a class="btn primary" href="#contact">Get in touch</a><a class="btn" href="#demo">See my Testlingo demo</a><a class="btn" href="#experience">See my experience</a><a class="btn" id="gh1" href="https://github.com/" hidden>GitHub</a><a class="btn" id="cv1" href="#" hidden>Download CV</a></div>
+</div>
+<aside class="hero-side" aria-label="Testlingo running a plain-English test">
+<div class="mini"><div class="mini-bar"><i></i><i></i><i></i><span>Testlingo · login test</span></div>
+<div class="mini-body" id="mini" aria-hidden="true"></div>
+<div class="mini-foot"><span id="miniStat">Running…</span><a href="#demo">Open the demo ↓</a></div></div>
+<p class="when hero-note">Now building <b>Testlingo</b>: test cases written in plain English that run for real on web, mobile and API, with the Java test written for you.</p>
+</aside>
+</div>
 <p class="flowhead">What does a software tester do? <span>I make sure software works before customers see it.</span></p>
 <div class="flow" aria-label="What a software tester does">
 <div class="step"><svg viewBox="0 0 120 80" aria-hidden="true"><rect x="38" y="6" width="44" height="66" rx="5"/><path class="ln" d="M46 24h28"/><path class="ln l2" d="M46 38h28"/><path class="ln l3" d="M46 52h18"/></svg><h4>1. Understand</h4><p>Read requirements and plan what to check</p></div>
@@ -157,7 +223,6 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 <div class="step"><svg viewBox="0 0 120 80" aria-hidden="true"><g transform="translate(70 46)" stroke="#f87171" stroke-width="2"><circle class="bx" r="7" fill="#f87171"/><path d="M-7 -3l-6 -4M7 -3l6 -4M-7 3l-6 4M7 3l6 4"/></g><g class="sweep"><circle r="15"/><path d="M11 11l14 14"/></g></svg><h4>3. Find bugs</h4><p>Hunt for defects and report them clearly in Jira</p></div>
 <div class="step"><svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="30"/><path class="ck" d="M46 41l10 10 20-22"/></svg><h4>4. Verify</h4><p>Retest the fix and approve the release</p></div>
 </div>
-<div class="btns"><a class="btn primary" href="#contact">Get in touch</a><a class="btn" href="#experience">See my experience</a><a class="btn" id="gh1" href="https://github.com/" hidden>GitHub</a><a class="btn" id="cv1" href="#" hidden>Download CV</a></div>
 <div class="stats">
 <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>Years in QA</span></div>
 <div class="stat"><b data-count="80" data-suffix="%">80%</b><span>Automation coverage (up from 40%)</span></div>
@@ -186,24 +251,20 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 </section>
 
 <section id="demo">
-<h2>Watch a test run</h2>
-<div class="tabs" id="tabs"><button class="on" data-m="selenium">Selenium + Java</button><button data-m="playwright">Playwright</button><button data-m="api">API (Postman)</button><button data-m="manual">Manual</button></div>
-<div class="pipe" id="pipe"><span>Commit</span><span>Build</span><span>Test</span><span>Report</span><span>Deploy</span></div>
-<div class="demo">
-<div class="browser" id="browser"><div class="bbar"><i></i><i></i><i></i><span>demo-shop.example/login</span></div><div class="bbody"><label>Username</label><div class="inp" id="u"></div><label>Password</label><div class="inp" id="pw"></div><div class="fbtn" id="lb">Login</div><div class="msg" id="msg"></div></div></div>
-<div class="term" id="term" aria-label="Animated example of an automated test run"></div>
+<h2>See Testlingo in action</h2>
+<p class="lead demo-lead">Write a test case in plain English. Testlingo runs it step by step, reports what passed and failed, and writes the Java test for you. Pick a platform and watch it work.</p>
+<div class="tabs" id="tabs" role="tablist"><button class="on" data-m="web" role="tab">Web · Playwright</button><button data-m="api" role="tab">API · REST</button><button data-m="mobile" role="tab">Mobile · Appium</button></div>
+<div class="pipe" id="pipe"><span>Write in English</span><span>Read the steps</span><span>Run</span><span>Report</span><span>Java code</span></div>
+<div class="tl">
+<div class="tl-panel"><div class="tl-head"><span>Test cases</span><span id="tlFile">login.txt</span></div><div class="tl-editor" id="tlEditor"></div></div>
+<div class="tl-panel"><div class="tl-head"><span id="tlPrevTitle">Website under test</span><span id="tlPrevNote"></span></div><div class="tl-preview" id="tlPreview"></div></div>
+<div class="tl-panel"><div class="tl-head"><span>Results</span><span id="tlTime">0.0s</span></div>
+<div class="dstats tl-stats"><div class="card"><b class="p" id="sp">0</b>Passed</div><div class="card"><b class="f" id="sf">0</b>Failed</div><div class="card"><b id="ss">0</b>Steps</div><div class="card"><b id="gt">0%</b>Pass rate<div class="gauge"><i id="gg"></i></div></div></div>
+<div class="tl-cases" id="tlCases"></div></div>
+<div class="tl-panel"><div class="tl-head"><span id="tlJavaTitle">Generated Java</span><span>TestNG</span></div><pre class="tl-java" id="tlJava"></pre></div>
 </div>
-<div class="dstats">
-<div class="card"><b class="p" id="sp">0</b>Passed</div>
-<div class="card"><b class="f" id="sf">0</b>Failed</div>
-<div class="card"><b class="k" id="sk">0</b>Skipped</div>
-<div class="card"><b id="gt">0%</b>Pass rate<div class="gauge"><i id="gg"></i></div></div>
-</div>
-<div class="bug" id="bug"><h3>BUG-101 · Login rejects valid password with special characters</h3>
-<dl><dt>Status</dt><dd><span class="st" id="bst">Open</span></dd><dt>Severity</dt><dd>High</dd><dt>Steps</dt><dd>1. Open login page 2. Enter a valid user and the password P@ssw0rd! 3. Click Login</dd><dt>Expected</dt><dd>User reaches the dashboard</dd><dt>Actual</dt><dd id="bact">Error: Invalid credentials</dd></dl></div>
-<div class="saved" id="saved"></div>
-<button class="btn replay" id="replay" type="button">↻ Replay test run</button>
-<p class="when">All names, bugs and figures here are sample data for demonstration.</p>
+<div class="btns" style="margin-top:16px"><button class="btn replay" id="replay" type="button">↻ Replay</button><a class="btn" href="https://github.com/basiltharian/testlingo" target="_blank" rel="noopener">See the Testlingo code</a></div>
+<p class="when" style="margin-top:12px">A simulated walkthrough with sample data. The real tool runs these steps in a browser with Playwright, on phones with Appium, or against a live API.</p>
 </section>
 
 <section id="skills">
@@ -259,49 +320,151 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);co.unobserve(e.target)}})},{threshold:.5});
  document.querySelectorAll("[data-count]").forEach(function(n){co.observe(n)});
 
- var term=document.getElementById("term"),timers=[],cur="selenium";
- var M={
-  selenium:{cmd:"$ mvn clean test -Dsuite=regression",pre:["LoginPageTest.opensPage ........ PASSED","LoginPageTest.validatesFields .. PASSED","LegacyIeTest.render ........... SKIPPED"],test:"LoginTest.validLogin_specialChar",act:"Error: Invalid credentials",ui:1},
-  playwright:{cmd:"$ npx playwright test --project=chromium",pre:["opens login page ............. PASSED","shows field validation ........ PASSED","mobile layout (webkit) ........ SKIPPED"],test:"login with special-character password",act:"Error: Invalid credentials",ui:1},
-  api:{cmd:"$ newman run login-collection.json",pre:["GET /health → 200 ............. PASSED","POST /login empty body → 400 .. PASSED","DELETE /session (legacy) ...... SKIPPED"],test:"POST /login valid user → expect 200",act:"Status 401 Unauthorized (expected 200)",ui:0},
-  manual:{cmd:"$ Manual test cycle · TC-101 to TC-104 · Jira",pre:["TC-101 Open login page ........ PASSED","TC-102 Field validation ........ PASSED","TC-104 Old browser check ....... SKIPPED"],test:"TC-103 Login with special-character password",act:"Error: Invalid credentials",ui:1}
- };
- var st=document.querySelectorAll("#pipe span");
- function pipe(i,c){st[i].className=c||""}
- function add(t,c){var d=document.createElement("div");d.className=c;d.textContent=t||" ";term.appendChild(d);term.scrollTop=term.scrollHeight}
+ // ---------- Testlingo demo: plain-English test cases run step by step (simulated, sample data)
  function $(i){return document.getElementById(i)}
- var P=0,F=0,K=0;
- function stats(){$("sp").textContent=P;$("sf").textContent=F;$("sk").textContent=K;var t=P+F,r=t?Math.round(P/t*100):0;$("gt").textContent=r+"%";$("gg").style.width=r+"%";$("gg").style.background=r===100?"#4ade80":"#fbbf24"}
- function typeInto(el,txt){el.textContent="";var i=0,id=setInterval(function(){el.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(id)},45);timers.push(id)}
- function reset(){timers.forEach(function(t){clearTimeout(t);clearInterval(t)});timers=[];term.textContent="";P=F=K=0;stats();
-  for(var i=0;i<5;i++)pipe(i);$("u").textContent="";$("pw").textContent="";$("msg").textContent="";$("msg").className="msg";
-  $("bug").className="bug";$("bst").textContent="Open";$("bst").className="st";$("saved").textContent="";$("lb").className="fbtn"}
- function run(mode){cur=mode;reset();var m=M[mode],d=0;
-  $("browser").className="browser"+(m.ui?"":" dim");
-  document.querySelectorAll("#tabs button").forEach(function(b){b.className=b.dataset.m===mode?"on":""});
-  function at(ms,fn){d+=ms*.7;timers.push(setTimeout(fn,d))}
-  at(0,function(){pipe(0,"on");add(m.cmd,"dim")});
-  at(600,function(){pipe(0,"ok");pipe(1,"on");add("Building project...","run")});
-  at(900,function(){pipe(1,"ok");pipe(2,"on")});
-  m.pre.forEach(function(l,i){at(600,function(){var sk=l.indexOf("SKIPPED")>0;add((sk?"○ ":"✔ ")+l,sk?"run":"ok");if(sk)K++;else P++;stats()})});
-  at(700,function(){add("▶ "+m.test,"run");if(m.ui)typeInto($("u"),"basil.tester")});
-  at(700,function(){if(m.ui)typeInto($("pw"),"P@ssw0rd!")});
-  at(800,function(){if(m.ui)$("lb").className="fbtn press"});
-  at(300,function(){$("lb").className="fbtn";if(m.ui){$("msg").textContent="Invalid credentials";$("msg").className="msg err"}});
-  at(500,function(){add("✘ "+m.test+" ... FAILED","bad");add("   "+m.act,"bad");F++;stats();pipe(2,"bad");$("bact").textContent=m.act;$("bug").className="bug show"});
-  at(1800,function(){add("Bug BUG-101 logged in Jira, assigned to developer","dim")});
-  at(1500,function(){$("bst").textContent="Fixed";$("bst").className="st fixed";add("Fix deployed. Re-running failed test...","run");pipe(2,"on")});
-  at(900,function(){if(m.ui){$("u").textContent="";$("pw").textContent="";$("msg").textContent="";typeInto($("u"),"basil.tester")}});
-  at(700,function(){if(m.ui)typeInto($("pw"),"P@ssw0rd!")});
-  at(800,function(){if(m.ui)$("lb").className="fbtn press"});
-  at(300,function(){$("lb").className="fbtn";if(m.ui){$("msg").textContent="Welcome back, Basil!";$("msg").className="msg good"}});
-  at(500,function(){add("✔ "+m.test+" ... PASSED (retest)","ok");F--;P++;stats();pipe(2,"ok");pipe(3,"on");$("bst").textContent="Verified";$("bst").className="st ver"});
-  at(700,function(){pipe(3,"ok");pipe(4,"on");add("Report generated","dim")});
-  at(700,function(){pipe(4,"ok");add("","dim");add("Tests: "+P+" passed, 0 failed, "+K+" skipped","ok");add("BUILD SUCCESS · pipeline green","ok")})}
- document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)run(b.dataset.m)});
- var started=false,to=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;run(cur)}},{threshold:.3});
- to.observe(term);
- document.getElementById("replay").addEventListener("click",function(){run(cur)});
+ var calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ function wait(ms){return new Promise(function(r){setTimeout(r,calm?0:ms)})}
+ function esc(t){return String(t).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+ function hl(t){if(/^Test:/.test(t))return '<span class="k">'+esc(t)+'</span>';if(/^#/.test(t))return '<span class="c">'+esc(t)+'</span>';return esc(t).replace(/"([^"]*)"/g,'<q>"$1"</q>')}
+ function jhl(l){if(/^\s*\/\//.test(l))return '<span class="jc">'+esc(l)+'</span>';
+  return l.split(/("(?:[^"\\]|\\.)*")/).map(function(part,i){
+   if(i%2)return '<span class="js">'+esc(part)+'</span>';
+   return esc(part).replace(/(@Test|\b(?:public|void|class|extends|new|String|int|return)\b)/g,'<span class="jk">$1</span>')}).join("")}
+ function sec(n){return (n/1000).toFixed(1)+"s"}
+
+ // ---- web preview
+ function webLogin(){$("tlPreview").innerHTML='<div class="browser"><div class="bbar"><i></i><i></i><i></i><span id="wUrl">demo-shop.example/login</span></div><div class="bbody" id="wBody"><label>Username</label><div class="inp" id="u"></div><label>Password</label><div class="inp" id="pw"></div><div class="fbtn" id="lb">Login</div><div class="msg" id="msg"></div></div></div>'}
+ function webDash(){$("wUrl").textContent="demo-shop.example/dashboard";$("wBody").innerHTML='<div class="dash"><span class="cart" id="cart">Cart: 0</span><h4>Welcome, tester</h4><div class="row">Running Shoes · £49 <span class="add" id="add1">Add to cart</span></div><div class="row">Leather Bag · £89 <span class="add">Add to cart</span></div></div>'}
+ async function typeInto(id,txt){var el=$(id);el.textContent="";for(var i=1;i<=txt.length;i++){el.textContent=txt.slice(0,i);await wait(45)}}
+ async function press(id){var b=$(id);b.classList.add("press");await wait(220);b.classList.remove("press")}
+ // ---- api preview
+ function apiView(){$("tlPreview").innerHTML='<div class="apiv"><div class="req"><span class="verb" id="av">—</span><span class="url" id="au">no request yet</span><span class="code" id="ac"></span></div><div class="hdr" id="ah"></div><pre id="ab">{ }</pre></div>'}
+ async function call(verb,url,code,ms,body){$("av").textContent=verb;$("au").textContent="api.demo-shop.example"+url;$("ac").textContent="…";$("ac").className="code";$("ab").textContent="";await wait(500);
+  $("ac").textContent=code+" · "+ms+" ms";$("ac").className="code "+(code<400?"c2":"c4");$("ab").textContent=JSON.stringify(body,null,2)}
+ // ---- mobile preview
+ function phoneView(){$("tlPreview").innerHTML='<div class="phone" id="ph"><div class="sb"><span>9:41</span><span>▮▮▮ 100%</span></div><div class="ab">Wikipedia</div><div class="srch" id="ms">Search Wikipedia</div><div class="res" id="mres"></div><div class="art" id="mart" hidden></div><span class="tap" id="tap"></span></div>'}
+ async function tapOn(id){var t=$("tap"),el=$(id),ph=$("ph").getBoundingClientRect(),r=el.getBoundingClientRect();
+  t.style.left=(r.left-ph.left+r.width/2-8)+"px";t.style.top=(r.top-ph.top+r.height/2-8)+"px";t.classList.remove("go");void t.offsetWidth;t.classList.add("go");await wait(350)}
+ async function typeSearch(txt){var el=$("ms");el.classList.add("on");el.textContent="";for(var i=1;i<=txt.length;i++){el.textContent=txt.slice(0,i);await wait(60)}}
+ function results(list){$("mres").innerHTML=list.map(function(r,i){return '<div id="r'+i+'">'+esc(r[0])+'<small>'+esc(r[1])+'</small></div>'}).join("")}
+
+ var DEMOS={
+  web:{file:"login-suite.txt",title:"Website under test",note:"Chromium",java:"Generated Java · Selenium",head:["public class LoginSuiteTest extends BaseWebTest {"],
+   cases:[
+    {t:"Login with a valid user",m:"loginWithAValidUser",start:webLogin,steps:[
+     {s:'Type "tester" into "Username"',a:function(){return typeInto("u","tester")},j:'fill(field("Username"), "tester");'},
+     {s:'Type "Pass@123" into "Password"',a:function(){return typeInto("pw","••••••••")},j:'fill(field("Password"), "Pass@123");'},
+     {s:'Click "Login"',a:async function(){await press("lb");webDash()},j:'clickable("Login").click();'},
+     {s:'Verify page contains "Welcome, tester"',j:'assertPageContains("Welcome, tester");'}]},
+    {t:"Login with a wrong password",m:"loginWithAWrongPassword",start:webLogin,steps:[
+     {s:'Type "tester" into "Username"',a:function(){return typeInto("u","tester")},j:'fill(field("Username"), "tester");'},
+     {s:'Type "wrong" into "Password"',a:function(){return typeInto("pw","•••••")},j:'fill(field("Password"), "wrong");'},
+     {s:'Click "Login"',a:async function(){await press("lb");$("msg").textContent="Invalid username or password";$("msg").className="msg err"},j:'clickable("Login").click();'},
+     {s:'Verify page contains "Invalid username or password"',j:'assertPageContains("Invalid username or password");'}]},
+    {t:"Add an item to the cart",m:"addAnItemToTheCart",start:function(){webLogin();webDash()},steps:[
+     {s:'Click "Add to cart"',a:function(){return press("add1")},j:'clickable("Add to cart").click();'},
+     {s:'Verify page contains "Cart: 1"',fail:'Expected "Cart: 1" on the page, but it still shows "Cart: 0". Bug found: the cart count does not update.',j:'assertPageContains("Cart: 1");'},
+     {s:"Take a screenshot",j:'screenshot("cart");'}]}]},
+  api:{file:"users-api.txt",title:"API under test",note:"REST · JSON",java:"Generated Java · RestAssured",head:["public class UsersApiTest {"],
+   cases:[
+    {t:"List users",m:"listUsers",start:apiView,steps:[
+     {s:'Send GET request to "/users"',a:function(){return call("GET","/users",200,84,{page:1,total:3,data:[{id:1,name:"Asha Patel",role:"admin"},{id:2,name:"Ben Carter",role:"tester"},{id:3,name:"Chen Wei",role:"developer"}]})},j:'resp = given().spec(spec).when().get("/users").then().extract().response();'},
+     {s:"Verify status code is 200",j:"assertEquals(resp.statusCode(), 200);"},
+     {s:'Verify response field "data.0.name" equals "Asha Patel"',j:'assertEquals(resp.jsonPath().getString("data[0].name"), "Asha Patel");'}]},
+    {t:"Log in and create a user",m:"logInAndCreateAUser",start:apiView,steps:[
+     {s:'Send POST request to "/login" with body {"username": "tester"}',a:function(){return call("POST","/login",200,61,{token:"demo-token-123",user:{username:"tester"}})},j:'resp = given().spec(spec).body("{\\"username\\": \\"tester\\"}").when().post("/login").then().extract().response();'},
+     {s:'Save response field "token" as "token"',a:async function(){$("ah").textContent="Saved token = demo-token-123"},j:'String token = resp.jsonPath().getString("token");'},
+     {s:'Set header "Authorization" to "Bearer {{token}}"',a:async function(){$("ah").textContent="Header  Authorization: Bearer demo-token-123"},j:'headers.put("Authorization", "Bearer " + token);'},
+     {s:'Send POST request to "/users" with body {"name": "Dee Smith"}',a:function(){return call("POST","/users",201,73,{data:{id:4,name:"Dee Smith",role:"tester"}})},j:'resp = given().spec(spec).headers(headers).body("{\\"name\\": \\"Dee Smith\\"}").when().post("/users").then().extract().response();'},
+     {s:"Verify status code is 201",j:"assertEquals(resp.statusCode(), 201);"}]},
+    {t:"User search is fast enough",m:"userSearchIsFastEnough",start:apiView,steps:[
+     {s:'Send GET request to "/users?role=tester"',a:function(){return call("GET","/users?role=tester",200,340,{page:1,total:1,data:[{id:2,name:"Ben Carter",role:"tester"}]})},j:'resp = given().spec(spec).when().get("/users?role=tester").then().extract().response();'},
+     {s:"Verify response time is less than 200 ms",fail:"Response took 340 ms, expected under 200 ms. Performance issue found.",j:"assertTrue(resp.time() < 200);"}]}]},
+  mobile:{file:"wikipedia-app.txt",title:"Android app under test",note:"Pixel 7 · Appium",java:"Generated Java · Appium",head:["public class WikipediaAppTest extends BaseMobileTest {"],
+   cases:[
+    {t:"Search for an article",m:"searchForAnArticle",start:phoneView,steps:[
+     {s:'Tap "Search Wikipedia"',a:function(){return tapOn("ms")},j:'find("Search Wikipedia").click();'},
+     {s:'Type "BrowserStack" into "Search"',a:function(){return typeSearch("BrowserStack")},j:'fill(field("Search"), "BrowserStack");'},
+     {s:'Verify "BrowserStack" is displayed',a:async function(){results([["BrowserStack","Software testing platform"],["BrowserStack Live","Product"],["Cross-browser testing","Topic"]])},j:'assertDisplayed("BrowserStack");'}]},
+    {t:"Open the first result",m:"openTheFirstResult",start:async function(){phoneView();$("ms").textContent="BrowserStack";$("ms").classList.add("on");results([["BrowserStack","Software testing platform"],["BrowserStack Live","Product"],["Cross-browser testing","Topic"]])},steps:[
+     {s:'Tap "BrowserStack"',a:async function(){await tapOn("r0");$("mres").innerHTML="";var a=$("mart");a.hidden=false;a.innerHTML="<h5>BrowserStack</h5>BrowserStack is a cloud platform for testing websites and mobile apps on real browsers and devices."},j:'find("BrowserStack").click();'},
+     {s:'Verify "real browsers and devices" is displayed',j:'assertDisplayed("real browsers and devices");'},
+     {s:"Swipe up",a:async function(){$("mart").style.transition="transform .5s";$("mart").style.transform="translateY(-24px)"},j:'swipe("up");'}]},
+    {t:"Search with no results",m:"searchWithNoResults",start:phoneView,steps:[
+     {s:'Tap "Search Wikipedia"',a:function(){return tapOn("ms")},j:'find("Search Wikipedia").click();'},
+     {s:'Type "zzqx" into "Search"',a:function(){return typeSearch("zzqx")},j:'fill(field("Search"), "zzqx");'},
+     {s:'Verify "No results" is displayed',fail:'Expected to see "No results" on the screen, but the list is just empty. Bug found: no empty-state message.',j:'assertDisplayed("No results");'}]}]}
+ };
+
+ var runId=0,cur="web";
+ function pipe(i,c){var st=document.querySelectorAll("#pipe span");if(st[i])st[i].className=c||""}
+ function stats(P,F,S){$("sp").textContent=P;$("sf").textContent=F;$("ss").textContent=S;var t=P+F,r=t?Math.round(P/t*100):0;$("gt").textContent=r+"%";$("gg").style.width=r+"%";$("gg").style.background=F?"#fbbf24":"#4ade80"}
+ function jadd(lines){var pre=$("tlJava");lines.forEach(function(l){pre.insertAdjacentHTML("beforeend",'<span class="jn">'+jhl(l)+'</span>\n')});pre.scrollTop=pre.scrollHeight}
+
+ async function play(mode){
+  var id=++runId,d=DEMOS[mode];cur=mode;
+  document.querySelectorAll("#tabs button").forEach(function(b){var on=b.dataset.m===mode;b.className=on?"on":"";b.setAttribute("aria-selected",on)});
+  $("tlFile").textContent=d.file;$("tlPrevTitle").textContent=d.title;$("tlPrevNote").textContent=d.note;$("tlJavaTitle").textContent=d.java;
+  for(var i=0;i<5;i++)pipe(i);
+  // editor
+  var ed=$("tlEditor"),n=0,html=[],refs=[];
+  d.cases.forEach(function(c,ci){refs[ci]=[];
+   html.push('<div><span class="n">'+(++n)+'</span><span class="m"></span><span>'+hl("Test: "+c.t)+'</span></div>');
+   c.steps.forEach(function(st,si){html.push('<div data-c="'+ci+'" data-s="'+si+'"><span class="n">'+(++n)+'</span><span class="m"></span><span>'+hl((si+1)+". "+st.s)+'</span></div>')});
+   if(ci<d.cases.length-1)html.push('<div><span class="n">'+(++n)+'</span><span class="m"></span> </div>')});
+  ed.innerHTML=html.join("");
+  ed.querySelectorAll("[data-c]").forEach(function(el){refs[+el.dataset.c][+el.dataset.s]=el});
+  $("tlCases").innerHTML=d.cases.map(function(c,i){return '<div class="tl-case" id="tc'+i+'"><span class="d"></span><span class="tt">'+esc(c.t)+'<span class="why" id="tw'+i+'"></span></span><span class="cnt" id="tn'+i+'">waiting</span></div>'}).join("");
+  $("tlJava").innerHTML="";jadd(d.head);$("tlTime").textContent="0.0s";
+  var P=0,F=0,S=0,ms=0;stats(0,0,0);
+  pipe(0,"ok");await wait(500);if(id!==runId)return;
+  pipe(1,"on");await wait(700);if(id!==runId)return;pipe(1,"ok");pipe(2,"on");
+  for(var ci=0;ci<d.cases.length;ci++){
+   var c=d.cases[ci],row=$("tc"+ci),ok=true,done=0;
+   row.className="tl-case run";$("tn"+ci).textContent="running…";
+   await c.start();
+   jadd([""," @Test(priority = "+(ci+1)+", description = \""+c.t+"\")"," public void "+c.m+"() {"]);
+   for(var si=0;si<c.steps.length;si++){
+    var st=c.steps[si],line=refs[ci][si];
+    if(!ok){line.querySelector(".m").textContent="–";jadd(["     "+st.j]);continue}
+    line.className="cur";
+    await wait(350);if(id!==runId)return;
+    if(st.a)await st.a();if(id!==runId)return;
+    await wait(450);if(id!==runId)return;
+    S++;ms+=st.fail?380:180+Math.round(Math.random()*500);
+    jadd(["     "+st.j]);
+    if(st.fail){ok=false;line.className="badl";line.querySelector(".m").textContent="✕";$("tw"+ci).textContent=st.fail}
+    else{line.className="okl";line.querySelector(".m").textContent="✓";done++}
+    $("tlTime").textContent=sec(ms);stats(P,F,S);
+   }
+   jadd([" }"]);
+   if(ok)P++;else F++;
+   row.className="tl-case "+(ok?"ok":"bad");row.querySelector(".d").textContent=ok?"✓":"✕";
+   $("tn"+ci).textContent=done+"/"+c.steps.length+" steps";stats(P,F,S);
+   await wait(700);if(id!==runId)return;
+  }
+  pipe(2,F?"bad":"ok");pipe(3,"on");await wait(600);if(id!==runId)return;
+  pipe(3,"ok");pipe(4,"on");jadd(["}"]);await wait(600);if(id!==runId)return;pipe(4,"ok");
+ }
+ document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)play(b.dataset.m)});
+ document.getElementById("replay").addEventListener("click",function(){play(cur)});
+ var started=false,to=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;play(cur)}},{threshold:.25});
+ to.observe(document.getElementById("demo"));
+
+ // ---------- hero: a small Testlingo window running a test on a loop
+ var mini=$("mini"),miniStat=$("miniStat"),ML=['Type "tester" into "Username"','Type "Pass@123" into "Password"','Click "Login"','Verify page contains "Welcome"'];
+ function mline(cls,mark,html){var d=document.createElement("div");d.className=cls;d.innerHTML='<b>'+mark+'</b><span>'+html+'</span>';mini.appendChild(d);return d}
+ async function miniLoop(){
+  while(true){
+   mini.innerHTML="";miniStat.textContent="Running…";
+   mline("t","","Test: Login with a valid user");
+   for(var i=0;i<ML.length;i++){var l=mline("run","▸",esc(ML[i]).replace(/"([^"]*)"/g,'<q>"$1"</q>'));await wait(650);l.className="ok";l.querySelector("b").textContent="✓"}
+   await wait(300);mline("ok","✓","4/4 steps passed in 1.8s");await wait(300);mline("t","☕","LoginTest.java generated");
+   miniStat.textContent="Passed · Java test ready";
+   if(calm)return;await wait(3200);
+  }
+ }
+ miniLoop();
 })();
 </script>
 </body>
