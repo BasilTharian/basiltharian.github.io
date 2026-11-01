@@ -142,7 +142,15 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 .mini-body .ok b{color:#4ade80}.mini-body .run b{color:#fbbf24}.mini-body q{quotes:none;color:#fbbf24}
 .mini-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
 .mini-foot a{color:var(--accent);text-decoration:none;font-weight:600}
-.demo-lead{margin:-8px 0 18px;max-width:760px}
+.tlx{display:grid;gap:20px;margin-bottom:22px}
+@media (min-width:900px){.tlx{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:end}}
+.tlx-title{font-size:clamp(1.8rem,3.4vw,2.4rem);margin:14px 0 10px}
+.tlx-title span{display:block;font-size:1rem;font-weight:600;color:var(--accent);margin-top:4px}
+.tlx .lead{max-width:none;margin:0}
+.tlx code{font-size:.85em;background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:4px;white-space:nowrap}
+.tlx-side .chips{margin-top:0}
+.tlx-try{font-weight:700;margin:0 0 12px}
+.tlx-foot{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:16px}.tlx-foot .replay{margin-top:0}.tlx-foot .when{margin:0;flex:1;min-width:240px}
 .tl{display:grid;gap:16px}
 @media (min-width:900px){.tl{grid-template-columns:1fr 1fr}}
 .tl-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
@@ -186,18 +194,12 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 #experience .job ul{max-width:920px}
 #skills .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 #certs .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.feature{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center}
-.feature code{font-size:.85em;background:var(--accent-soft);color:var(--accent);padding:1px 5px;border-radius:4px}
-.feature-shot{display:block;min-width:0}
-.feature-shot img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--border)}
-.feature.noshot{grid-template-columns:1fr}
-@media (max-width:700px){.feature{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div id="bar"></div>
 <div class="wrap">
-<nav><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#demo">Testlingo demo</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
+<nav><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#testlingo">Testlingo</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></nav>
 
 <header class="hero" id="about">
 
@@ -207,13 +209,13 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 <p class="typing">I <span id="typed"></span><span class="cursor">|</span></p>
 <p class="lead">Software Testing Engineer with 5+ years of manual and automation experience (Selenium/Java, Playwright). I’ve led QA teams, built automation frameworks and lifted test automation coverage from 40% to 80%, with solid Agile, CI/CD, API and performance testing behind it.</p>
 <p class="lead" style="font-size:.95rem;margin:14px 0 0">📍 Manchester, UK · Willing to relocate · 5+ years in software testing</p>
-<div class="btns"><a class="btn primary" href="#contact">Get in touch</a><a class="btn" href="#demo">See my Testlingo demo</a><a class="btn" href="#experience">See my experience</a><a class="btn" id="gh1" href="https://github.com/" hidden>GitHub</a><a class="btn" id="cv1" href="#" hidden>Download CV</a></div>
+<div class="btns"><a class="btn primary" href="#contact">Get in touch</a><a class="btn" href="#testlingo">See Testlingo in action</a><a class="btn" href="#experience">See my experience</a><a class="btn" id="gh1" href="https://github.com/" hidden>GitHub</a><a class="btn" id="cv1" href="#" hidden>Download CV</a></div>
 </div>
 <aside class="hero-side" aria-label="Testlingo running a plain-English test">
 <div class="mini"><div class="mini-bar"><i></i><i></i><i></i><span>Testlingo · login test</span></div>
 <div class="mini-body" id="mini" aria-hidden="true"></div>
-<div class="mini-foot"><span id="miniStat">Running…</span><a href="#demo">Open the demo ↓</a></div></div>
-<p class="when hero-note">Now building <b>Testlingo</b>: test cases written in plain English that run for real on web, mobile and API, with the Java test written for you.</p>
+<div class="mini-foot"><span id="miniStat">Running…</span><a href="#testlingo">See it in action ↓</a></div></div>
+<p class="when hero-note">Now building <b>Testlingo</b>, my plain-English test automation tool.</p>
 </aside>
 </div>
 <p class="flowhead">What does a software tester do? <span>I make sure software works before customers see it.</span></p>
@@ -242,7 +244,6 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 <p class="when">2022–2025: career transition, completing a DevOps certification and freelance testing work.</p>
 <h3 id="projects" style="margin:28px 0 14px">Key projects</h3>
 <div class="grid">
-<div class="card feature"><div class="feature-text"><h3>Testlingo – Plain-English Test Automation</h3><div class="when">Personal project · 2026</div><p>A tool where test cases are written in plain English (<code>Click "Login"</code>, <code>Verify page contains "Welcome"</code>) and run for real on websites, Android and iOS apps and REST APIs. It runs whole suites in parallel, imports and exports test cases in Excel, and generates a matching Java test project with Selenium, Appium or RestAssured and TestNG for every run.</p><p style="color:var(--accent);font-weight:600;margin-top:8px">Web, mobile and API testing from one plain-English test case</p><div class="chips"><span class="chip">Playwright</span><span class="chip">Appium</span><span class="chip">RestAssured</span><span class="chip">Selenium</span><span class="chip">TestNG</span><span class="chip">Python</span><span class="chip">Docker</span></div><div class="btns" style="margin-top:16px"><a class="btn" href="https://github.com/basiltharian/testlingo" target="_blank" rel="noopener">View the code on GitHub</a></div></div><a class="feature-shot" href="assets/testlingo.jpg" target="_blank" rel="noopener"><img src="assets/testlingo.jpg" width="1200" height="806" loading="lazy" alt="Testlingo running three web test cases: two passed and one failed, with each step's result shown" onerror="this.closest('.feature').classList.add('noshot');this.parentElement.remove()"></a></div>
 <div class="card"><h3>Manual to Automation Conversion</h3><div class="when">DRD Communications · 2017–2022</div><p>Led the move from manual to automated testing, owning about 80% of the project end to end. Built a scalable framework with Maven and the Page Object Model, and trained a team of 18.</p><p style="color:var(--accent);font-weight:600;margin-top:8px">Coverage 40% → 80% · test errors down 75%</p><div class="chips"><span class="chip">Selenium</span><span class="chip">Java</span><span class="chip">Maven</span><span class="chip">POM</span></div></div>
 <div class="card"><h3>Rating Engine Update</h3><div class="when">DRD Communications · Telecom billing</div><p>Tested a full Rating Engine update, validating billing calculations and tariffs. Ran functional, regression and performance tests, checked CDR (Call Detail Record) data and used SQL to verify database records.</p><p style="color:var(--accent);font-weight:600;margin-top:8px">Post-release defects down 30%</p><div class="chips"><span class="chip">Manual testing</span><span class="chip">SQL</span><span class="chip">Performance</span><span class="chip">CDR validation</span></div></div>
 <div class="card"><h3>SpaceShip – UI Revamp for Uboss</h3><div class="when">DRD Communications · Agile team</div><p>Wrote test plans and cases for a full UI revamp. Covered functional, UI, usability and cross-browser and device testing, plus AWS Lambda checks on the cloud backend APIs.</p><p style="color:var(--accent);font-weight:600;margin-top:8px">User-reported issues down 25% after launch</p><div class="chips"><span class="chip">Usability</span><span class="chip">Compatibility</span><span class="chip">AWS Lambda</span><span class="chip">Jira</span></div></div>
@@ -250,9 +251,19 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 </div>
 </section>
 
-<section id="demo">
-<h2>See Testlingo in action</h2>
-<p class="lead demo-lead">Write a test case in plain English. Testlingo runs it step by step, reports what passed and failed, and writes the Java test for you. Pick a platform and watch it work.</p>
+<section id="testlingo">
+<div class="tlx">
+<div class="tlx-text">
+<span class="tag">Featured project · Personal · 2026</span>
+<h2 class="tlx-title">Testlingo <span>Plain-English test automation</span></h2>
+<p class="lead">Write test cases in plain English, like <code>Click "Login"</code> or <code>Verify page contains "Welcome"</code>. Testlingo runs them for real on websites, Android and iOS apps and REST APIs, reports every step, and writes a matching Java test with Selenium, Appium or RestAssured and TestNG. It also runs whole suites in parallel and imports and exports test cases in Excel.</p>
+</div>
+<div class="tlx-side">
+<div class="chips"><span class="chip">Playwright</span><span class="chip">Appium</span><span class="chip">RestAssured</span><span class="chip">Selenium</span><span class="chip">TestNG</span><span class="chip">Python</span><span class="chip">Docker</span></div>
+<div class="btns" style="margin-top:16px"><a class="btn primary" href="https://github.com/basiltharian/testlingo" target="_blank" rel="noopener">View the code on GitHub</a></div>
+</div>
+</div>
+<p class="tlx-try">Watch it work: pick a platform.</p>
 <div class="tabs" id="tabs" role="tablist"><button class="on" data-m="web" role="tab">Web · Playwright</button><button data-m="api" role="tab">API · REST</button><button data-m="mobile" role="tab">Mobile · Appium</button></div>
 <div class="pipe" id="pipe"><span>Write in English</span><span>Read the steps</span><span>Run</span><span>Report</span><span>Java code</span></div>
 <div class="tl">
@@ -263,8 +274,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
 <div class="tl-cases" id="tlCases"></div></div>
 <div class="tl-panel"><div class="tl-head"><span id="tlJavaTitle">Generated Java</span><span>TestNG</span></div><pre class="tl-java" id="tlJava"></pre></div>
 </div>
-<div class="btns" style="margin-top:16px"><button class="btn replay" id="replay" type="button">↻ Replay</button><a class="btn" href="https://github.com/basiltharian/testlingo" target="_blank" rel="noopener">See the Testlingo code</a></div>
-<p class="when" style="margin-top:12px">A simulated walkthrough with sample data. The real tool runs these steps in a browser with Playwright, on phones with Appium, or against a live API.</p>
+<div class="tlx-foot"><button class="btn replay" id="replay" type="button">↻ Replay</button><p class="when">A simulated walkthrough with sample data. The real tool runs these steps in a browser with Playwright, on phones with Appium, or against a live API.</p></div>
 </section>
 
 <section id="skills">
@@ -449,7 +459,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.9rem;text-align:center;borde
  document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)play(b.dataset.m)});
  document.getElementById("replay").addEventListener("click",function(){play(cur)});
  var started=false,to=new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;play(cur)}},{threshold:.25});
- to.observe(document.getElementById("demo"));
+ to.observe(document.getElementById("testlingo"));
 
  // ---------- hero: a small Testlingo window running a test on a loop
  var mini=$("mini"),miniStat=$("miniStat"),ML=['Type "tester" into "Username"','Type "Pass@123" into "Password"','Click "Login"','Verify page contains "Welcome"'];
